@@ -11,7 +11,7 @@ class ImagePredictor:
             std = [0.229, 0.224, 0.225]
         )
         self.device = torch.device('cpu')
-        self.loaded_model = torch.load('glaucoma_net.pth')
+        self.loaded_model = torch.load('glaucoma_net.pth', map_location=torch.device('cpu'))
         self.loaded_model.to(self.device)
         self.loaded_model.eval()
         self.val_data_transforms = transforms.Compose([
