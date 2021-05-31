@@ -7,7 +7,7 @@ import io
 from PIL import Image
 import re
 
-from app import app
+from apps import app
 
 from style import CONTENT_STYLE, UPLOAD_CONTENT_STYLE
 from helpers.predict import ImagePredictor
