@@ -1,0 +1,4 @@
+dash
+dash-bootstrap-components
+https://download.pytorch.org/whl/cu111/torch-1.8.1%2Bcu111-cp38-cp38-linux_x86_64.whl
+https://download.pytorch.org/whl/cpu/torchvision-0.9.1%2Bcpu-cp38-cp38-linux_x86_64.whl
