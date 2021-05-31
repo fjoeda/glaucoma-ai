@@ -8,6 +8,9 @@ from apps import app
 from pages import home
 
 
+app = app
+server = app.server
+
 PLOTLY_LOGO = "https://images.plot.ly/logo/new-branding/plotly-logomark.png"
 
 navbar = dbc.Navbar(
