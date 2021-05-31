@@ -41,12 +41,12 @@ home_layout = [
                 html.Div([
                     dbc.Row([
                         dbc.Col(html.H5("Glaucoma Positive : "),width = 2),
-                        dbc.Col(dbc.Progress(id="positive", color = 'danger', value = 80))
+                        dbc.Col(dbc.Progress(id="positive", color = 'danger', value = 0, style = {"foreground":"white"}))
                     ],justify="center", align="center"),
                     html.Br(),
                     dbc.Row([
                         dbc.Col(html.H5("Glaucoma Negative : "),width = 2),
-                        dbc.Col(dbc.Progress(id="negative", color = 'success', value = 80))
+                        dbc.Col(dbc.Progress(id="negative", color = 'success', value = 0, style = {"foreground":"white"}))
                     ],justify="center", align="center"),
                 ])
             ],  style=CONTENT_STYLE),
@@ -64,7 +64,8 @@ def decode_img(msg):
 
 
 @app.callback(
-    [Output("output-image-upload","children"),Output("positive","value"),Output("negative","value")],
+    [Output("output-image-upload","children"),Output("positive","value"),Output("negative","value"),
+    Output("positive", "children"),Output("negative", "children")],
     [Input('upload-image','contents')]
 )
 def update_value(content):
@@ -79,5 +80,5 @@ def update_value(content):
         negative_val = round(negative*100)
         #positive_val = 10
         #negative_val = 20
-        return image_content, positive_val, negative_val
+        return image_content, positive_val, negative_val, f"{positive_val} %" if positive_val >= 5 else "",f"{negative_val} %" if negative_val >= 5 else ""
 
